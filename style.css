@@ -24,3 +24,51 @@ header{
 #cabecalho-text > h3 {
     color: aliceblue;
 }
+main {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#filho-main {
+    border: 2px solid #6495ED;
+    width: 40%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.adiciona-tarefa {
+    width: 80%;
+    height: 25px;
+}
+#texto_adiciona-tarefa {
+    outline: none;
+    border: none;
+    font-size: 16px;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: aliceblue;
+}
+.confirma-tarefa {
+    width: 20%;
+    height: 25px;
+}
+#botao_confirma-tarefa {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 20px;
+    background-color: green;
+    text-align: center;
+    color: aliceblue;
+}
+#botao_confirma-tarefa:hover {
+    background-color: aliceblue;
+    color: green;
+    border: 1px solid green;
+    transition: 0.4s;
+}
