@@ -38,16 +38,23 @@ main {
     align-items: center;
     justify-content: center;
     padding: 10px;
+    flex-direction: column;
 }
-.adiciona-tarefa {
+#adiciona-tarefa {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.digita-tarefa {
     width: 80%;
     height: 25px;
+    margin-bottom: 10px;
 }
-#texto_adiciona-tarefa {
+#texto_digita-tarefa {
     outline: none;
     border: none;
     font-size: 16px;
-    border-radius: 20px;
     width: 100%;
     height: 100%;
     text-align: center;
@@ -56,19 +63,60 @@ main {
 .confirma-tarefa {
     width: 20%;
     height: 25px;
+    margin-bottom: 10px;
 }
 #botao_confirma-tarefa {
     width: 100%;
     height: 100%;
-    border: none;
+    border: 1px solid green;
     border-radius: 20px;
-    background-color: green;
+    background-color: aliceblue;
     text-align: center;
-    color: aliceblue;
+    color: green;
 }
 #botao_confirma-tarefa:hover {
-    background-color: aliceblue;
-    color: green;
-    border: 1px solid green;
+    background-color: green;
+    color: aliceblue;
     transition: 0.4s;
+}
+.tarefa {
+    width: 100%;
+    height: 30px;
+    background-color: #87CEEB;
+    margin-top: 5px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.descricao-tarefa {
+    text-align: justify;
+    padding: 3px;
+    color: aliceblue;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.deleta-tarefa {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.botao-deleta-tarefa {
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+    border-left: none;
+    color: red;
+    background-color: aliceblue;
+    border-radius: 0 20px 20px 0;
+}
+.botao-deleta-tarefa:hover {
+    background-color: red;
+    color: aliceblue;
+    transition: .4s;
 }
