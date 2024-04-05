@@ -89,6 +89,24 @@ main {
     align-items: center;
     justify-content: center;
 }
+.tarefa-concluida {
+    width: 100%;
+    height: 30px;
+    background-color: lightgreen;
+    margin-top: 5px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s;
+}
+.seleciona-tarefa {
+    width: 5%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .descricao-tarefa {
     text-align: justify;
     padding: 3px;
@@ -100,7 +118,7 @@ main {
     justify-content: center;
 }
 .deleta-tarefa {
-    width: 20%;
+    width: 15%;
     height: 100%;
     display: flex;
     align-items: center;
