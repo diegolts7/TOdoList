@@ -8,7 +8,6 @@ botao_envia_tarefa.addEventListener("click", function() {
 
     if(texto_input.trim() !== '') {
         contadorTarefas++;
-        // Criar elementos HTML
         let divTarefa = document.createElement('div');
         divTarefa.className = 'tarefa';
 
@@ -19,15 +18,11 @@ botao_envia_tarefa.addEventListener("click", function() {
         inputSelecionaTarefa.id = 'checkbox_' + contadorTarefas; // Adicionando um prefixo para garantir que o id seja único
         inputSelecionaTarefa.type = 'checkbox';
 
-        // Adicionar evento de escuta para os checkboxes
         inputSelecionaTarefa.addEventListener("change", function() {
-            // Verificar se o checkbox está marcado
             if (this.checked) {
-                // Se estiver marcado, alterar a cor de fundo da div tarefa para verde
                 divTarefa.classList.add('tarefa-concluida');
                 divTarefa.classList.remove('tarefa')
             } else {
-                // Se não estiver marcado, voltar à cor de fundo original
                 divTarefa.classList.add('tarefa');
                 divTarefa.classList.remove('tarefa-concluida')
             }
@@ -40,6 +35,11 @@ botao_envia_tarefa.addEventListener("click", function() {
         paragrafo.className = 'texto-descricao-tarefa';
         paragrafo.textContent = texto_input;
 
+        paragrafo.addEventListener("dblclick", function() {
+            let paragrafoModificado = prompt("Insira a modificação da tarefa:");
+            paragrafo.textContent = paragrafoModificado;
+        })
+
         let divDeleta = document.createElement('div');
         divDeleta.className = 'deleta-tarefa';
 
@@ -48,18 +48,18 @@ botao_envia_tarefa.addEventListener("click", function() {
         inputExcluir.type = 'button';
         inputExcluir.value = 'Excluir';
 
-        // Adicionar elementos à hierarquia
+        inputExcluir.addEventListener("click", function() {
+            divTarefa.remove();
+        });
+
         divSelecionaTarefa.appendChild(inputSelecionaTarefa);
         divTarefa.appendChild(divSelecionaTarefa);
         divDescricao.appendChild(paragrafo);
         divTarefa.appendChild(divDescricao);
         divTarefa.appendChild(divDeleta);
         divDeleta.appendChild(inputExcluir);
-
-        // Adicionar a nova tarefa ao filho_main
         filho_main.appendChild(divTarefa);
 
-        // Limpar o campo de entrada
         input_digita_tarefa.value = '';
     }
 });
