@@ -1,3 +1,5 @@
+/* parte das pre definicoes dos estilos no codigo*/
+
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +11,51 @@ html{
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
 }
+
+/* estilização do modal */
+.modal{
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0,0.3);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s ease;
+}
+.estruturaModal {
+    width: 40%;
+    height: 70px;
+    border-radius: 15px;
+    background-color: aliceblue;
+    margin-top: -1100px;
+    animation: animation .3s forwards ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    box-shadow: 0px 0px 7px rgba(0,0,0,0.6);
+    padding: 15px;
+    
+}
+.textModificado {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid #6495ED;
+    text-align: center;
+}
+@keyframes animation {
+    from {
+        margin-top: -1100px;
+    }to {
+        margin-top: 0px;
+    }
+}
+
+/* estilização do cabeçalho */
 header{
     background-color: #6495ED;
     display: flex;
@@ -24,6 +71,7 @@ header{
 #cabecalho-text > h3 {
     color: aliceblue;
 }
+/* parte do corpo*/
 main {
     margin-top: 50px;
     display: flex;
@@ -65,20 +113,7 @@ main {
     height: 25px;
     margin-bottom: 10px;
 }
-#botao_confirma-tarefa {
-    width: 100%;
-    height: 100%;
-    border: 1px solid green;
-    border-radius: 20px;
-    background-color: aliceblue;
-    text-align: center;
-    color: green;
-}
-#botao_confirma-tarefa:hover {
-    background-color: green;
-    color: aliceblue;
-    transition: 0.4s;
-}
+
 .tarefa {
     width: 100%;
     height: 30px;
@@ -124,6 +159,7 @@ main {
     align-items: center;
     justify-content: center;
 }
+/* parte dos botoes */
 .botao-deleta-tarefa {
     width: 100%;
     height: 100%;
@@ -137,4 +173,18 @@ main {
     background-color: red;
     color: aliceblue;
     transition: .4s;
+}
+#botao_confirma-tarefa {
+    width: 100%;
+    height: 100%;
+    border: 1px solid green;
+    border-radius: 20px;
+    background-color: aliceblue;
+    text-align: center;
+    color: green;
+}
+#botao_confirma-tarefa:hover {
+    background-color: green;
+    color: aliceblue;
+    transition: 0.4s;
 }

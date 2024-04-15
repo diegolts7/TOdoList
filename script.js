@@ -1,6 +1,10 @@
 let botao_envia_tarefa = document.querySelector("#botao_confirma-tarefa");
 let input_digita_tarefa = document.querySelector("#texto_digita-tarefa");
 let filho_main = document.querySelector("#filho-main");
+
+const textModal = document.querySelector(".textModificado");
+const modal = document.querySelector(".modal");
+
 let contadorTarefas = 0;
 
 botao_envia_tarefa.addEventListener("click", function() {
@@ -36,8 +40,24 @@ botao_envia_tarefa.addEventListener("click", function() {
         paragrafo.textContent = texto_input;
 
         paragrafo.addEventListener("dblclick", function() {
-            let paragrafoModificado = prompt("Insira a modificação da tarefa:");
-            paragrafo.textContent = paragrafoModificado;
+
+            modal.style.display ="flex";
+            textModal.addEventListener("keypress", (event) => {
+                if(event.key === "Enter"){
+                    if(textModal.value.trim() !== ""){
+                        paragrafo.textContent = textModal.value;
+                        modal.style.display ="none";
+                        textModal.value = "";
+                    }
+                }
+            })
+            modal.addEventListener("click", (event) => {
+                if(event.target === modal){
+                    modal.style.display ="none";
+                    textModal.value = "";
+                }
+            })
+            
         })
 
         let divDeleta = document.createElement('div');
