@@ -9,6 +9,7 @@ let contadorTarefas = 0;
 
 // eventos 
 
+
 if(localStorage.getItem("tamanho") !== null){
     let tam = Number(localStorage.getItem("tamanho"));
     contadorTarefas = tam + 1;
@@ -76,6 +77,7 @@ function addTarefa() {
         contadorTarefas++;
     }
 }
+
 function removerTarefa(event) {
 
     let divPai = event.target.parentNode;
@@ -84,11 +86,22 @@ function removerTarefa(event) {
 
     if((Number(idPaiDivPai)) < (Number(ultimoLista))){
 
-        let conteudo_idPaiDivPai = localStorage.getItem(`div${idPaiDivPai}`);
-        let conteudo_Ultimo = localStorage.getItem(`div${ultimoLista}`);
+        localStorage.setItem(`div${idPaiDivPai}`, "");
+        let contProx = Number(idPaiDivPai) + 1;
+        let contAtual = Number(idPaiDivPai);
+
+        while(localStorage.getItem(`div${ultimoLista}`) !== ""){
+
+            let conteudo_divProxima = localStorage.getItem(`div${contProx}`);
+            //let conteudo_divAtual = localStorage.getItem(`div${contAtual}`);
+            
+            localStorage.setItem(`div${contAtual}`, conteudo_divProxima);
+            localStorage.setItem(`div${contProx}`, "");
+
+            contAtual++;
+            contProx++;
+        }
         
-        localStorage.setItem(`div${ultimoLista}`, conteudo_idPaiDivPai);
-        localStorage.setItem(`div${idPaiDivPai}`, conteudo_Ultimo);
         localStorage.removeItem(`div${ultimoLista}`);
         localStorage.setItem("tamanho", `${(Number(ultimoLista)) - 1}`);
         contadorTarefas--;
@@ -149,7 +162,7 @@ function LerlocalStorage(i) {
     divSelecionaTarefa.className = 'seleciona-tarefa';
 
     let inputSelecionaTarefa = document.createElement('input');
-    inputSelecionaTarefa.className = 'checkbox'; // Adicionando um prefixo para garantir que o id seja único
+    inputSelecionaTarefa.className = 'checkbox'; 
     inputSelecionaTarefa.type = 'checkbox';
 
     inputSelecionaTarefa.addEventListener("change", confirmaTarefa);
