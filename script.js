@@ -77,20 +77,27 @@ function addTarefa() {
     }
 }
 function removerTarefa(event) {
+
     let divPai = event.target.parentNode;
     let idPaiDivPai = divPai.parentNode.id;
     let ultimoLista = localStorage.getItem("tamanho");
+
     if((Number(idPaiDivPai)) < (Number(ultimoLista))){
+
         let conteudo_idPaiDivPai = localStorage.getItem(`div${idPaiDivPai}`);
         let conteudo_Ultimo = localStorage.getItem(`div${ultimoLista}`);
+        
         localStorage.setItem(`div${ultimoLista}`, conteudo_idPaiDivPai);
         localStorage.setItem(`div${idPaiDivPai}`, conteudo_Ultimo);
         localStorage.removeItem(`div${ultimoLista}`);
         localStorage.setItem("tamanho", `${(Number(ultimoLista)) - 1}`);
+        contadorTarefas--;
         divPai.parentNode.remove();
     }else{
+
         localStorage.removeItem(`div${idPaiDivPai}`);
         localStorage.setItem("tamanho", `${(Number(ultimoLista)) - 1}`);
+        contadorTarefas--;
         divPai.parentNode.remove();
 
     }
